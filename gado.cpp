@@ -14,6 +14,8 @@ bool checarInt(string input) {
         while(true) {
             cout << "draven ";
         }
+    } else if(input.length() == 0) {
+        return false;
     }
     for(int i = 0; input[i] != '\0'; i++) {
         if(!(isdigit(input[i]))) {
@@ -24,13 +26,19 @@ bool checarInt(string input) {
 }
 
 bool checarFloat(string input) {
+    int qtdPontos = 0;
     if(input == "draven") {
         while(true) {
             cout << "draven ";
         }
+    } else if(input.length() == 0) {
+        return false;
     }
     for(int i = 0; input[i] != '\0'; i++) {
-        if(!(isdigit(input[i])) && input[i] != '.') {
+        if(input[i] == '.') {
+            qtdPontos++;
+        }
+        if((!(isdigit(input[i])) && input[i] != '.') || qtdPontos > 1) {
             return false;
         }
     }
